@@ -1,0 +1,131 @@
+@import './mixins';
+
+main {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+main > .main-container {
+  width: 100%;
+  max-width: 940px;
+  padding: 20px;
+}
+
+main > .main-container > h1 {
+  margin-top: 0;
+  font-weight: 500;
+}
+
+main > .main-container > p {
+  margin-top: 0;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+}
+
+button {
+  font-size: 18px;
+  color: #fff;
+  padding: 12px 35px;
+  min-width: 140px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition: background-color 200ms ease;
+  cursor: pointer;
+
+  
+  @include mobile {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  &.btn-default {
+    background-color: $default;
+    &:hover { background-color: darken($default, 10%); }
+  }
+  &.btn-primary {
+    background-color: $primary;
+    &:hover { background-color: darken($primary, 10%); }
+  }
+  &.btn-accent {
+    background-color: $accent;
+    &:hover { background-color: darken($accent, 10%); }
+  }
+
+  // outlines
+  &.btn-primary-outline {
+    background-color: #fff;
+    border-color: $primary;
+    color: $primary;
+    &:hover { background-color: transparentize($primary, 0.9); }
+  }
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 10px;
+
+  label {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      font-size: 12px;
+      color: $default;
+  }
+
+  span {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    font-size: 18px;
+    color: $default;
+  }
+
+  input, textarea {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    width: 100%;
+    padding: 25px 15px 10px;
+    border-radius: 6px;
+    border: 1px solid $default;
+    transition: box-shadow 200ms ease;
+    resize: none;
+
+    &:focus {
+        border-color: transparentize($accent, 0.4);
+        box-shadow: 0 0 0 2px transparentize($accent, 0.4);
+    }
+  }
+}
+
+// Grid
+.grid {
+  display: flex;
+  @each $var in 10, 20 {
+    &.grid-gap-#{$var} {
+      margin: -#{$var/2}px;
+    }
+  }
+
+  @for $i from 1 through $columns {
+    $wd: 100% / ($columns / $i);
+    .col-#{$i} {
+      display: inline-block;
+      width: $wd;
+    }
+  }
+
+  [class*="col-"] {
+    @each $var in 10, 20 {
+      &.col-gap-#{$var} {
+        margin: #{$var/2}px;
+      }
+    }
+  }
+}

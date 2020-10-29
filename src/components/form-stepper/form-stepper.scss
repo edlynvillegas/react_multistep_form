@@ -1,0 +1,12 @@
+@import '../../mixins';
+
+.form-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+
+    @include mobile {
+        margin-bottom: 20px;
+    }
+}

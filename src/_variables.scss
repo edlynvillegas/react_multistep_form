@@ -1,0 +1,23 @@
+$primary: #1a7aff;
+$accent: #44526c;
+$default: #ababab;
+$text: #191919;
+$valid: #44ab42;
+
+$columns: 12;
+
+$breakpoints: (
+  mobile_xs: 320px,
+  mobile: 576px,
+  tablet: 1024px,
+  laptop: 1440px
+);
+
+@function device($key) {
+    @if map-has-key($breakpoints, $key) {
+      @return map-get($breakpoints, $key);
+    }
+  
+    @warn "Unknown `#{$key}` in $breakpoints.";
+    @return null;
+}

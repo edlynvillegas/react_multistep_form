@@ -1,0 +1,72 @@
+@import '../../../mixins';
+
+.step-content {
+    display: flex;
+    align-items: center;
+    
+    .step-icon {
+        width: 40px;
+        height: 40px;
+        padding: 11px;
+        margin-right: 10px;
+        background-color: $default;
+        border-radius: 50%;
+        transition: background-color 400ms ease;
+
+        @include mobile {
+            margin-right: 0;
+        }
+
+        svg {
+            width: 18px;
+            height: 18px;
+            
+            g, path {
+                fill: #fff;
+            }
+        }
+    }
+    p {
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        color: $default;
+        transition: color 400ms ease;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &.active {
+        .step-icon { background-color: $accent; }
+        p { color: $accent; }
+    }
+
+    &.done {
+        .step-icon { background-color: $valid; }
+        p { color: $valid; }
+    }
+}
+
+.step-progress {
+    position: relative;
+    display: block;
+    height: 2px;
+    flex: 1;
+    margin: 0 15px;
+    background-color: $default;
+
+    &::after {
+        content: '';
+        display: block;
+        height: 100%;
+        width: 0;
+        transition: width 400ms ease;
+        background-color: $valid;
+    }
+
+    &.active {
+        &::after { width: 100%; }
+    }
+}

@@ -1,0 +1,14 @@
+@import '../../../mixins';
+
+.form-group {
+    margin-bottom: 25px;
+
+    @include mobile {
+        margin-bottom: 20px;
+    }
+    
+    p {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
+}

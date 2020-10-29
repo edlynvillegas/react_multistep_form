@@ -1,0 +1,6 @@
+@import 'variables';
+
+// MEDIA QUERIES
+@mixin mobile($size:0) {
+    @media only screen and (max-width: #{device(mobile)}) { @content; }
+}

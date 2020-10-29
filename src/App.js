@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+// Components
+import Form from './components/form/form'
+import FormStepper from './components/form-stepper/form-stepper'
+import './global.scss';
+// Provider
+import UIProvider from './context/UIContext'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UIProvider>
+      <main>
+          <div className="main-container">
+              <h1>Create a Load</h1>
+              <p>A <strong>load</strong> is a shipment you wish to have delivered by carriers.</p>
+              <div className="form-container">
+                <FormStepper />
+                <Form />
+              </div>
+          </div>
+      </main>
+    </UIProvider>
   );
 }
 
