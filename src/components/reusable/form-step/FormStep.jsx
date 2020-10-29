@@ -9,7 +9,8 @@ const FormStep = React.memo(({ step, title, icon, last }) => {
     const { activeStep, formSteps } = useContext(UIContext)
     let styles = 'step-content'
     if (activeStep>=step) {
-        if (formSteps[step-1].valid) styles += ' done'
+        if (step<activeStep) styles += ' done'
+        else if (step===formSteps.length && formSteps[step-1].valid) styles += ' done'  // last
         else styles += ' active'
     }
 
