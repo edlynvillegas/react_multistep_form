@@ -1,6 +1,5 @@
 // Components
-import Form from './components/form/form'
-import FormStepper from './components/form-stepper/FormStepper'
+import Main from './pages/main/Main'
 import './global.scss';
 // Provider
 import UIProvider from './context/UIContext'
@@ -8,16 +7,7 @@ import UIProvider from './context/UIContext'
 function App() {
   return (
     <UIProvider>
-      <main>
-          <div className="main-container">
-              <h1>Create a Load</h1>
-              <p>A <strong>load</strong> is a shipment you wish to have delivered by carriers.</p>
-              <div className="form-container">
-                <FormStepper />
-                <Form />
-              </div>
-          </div>
-      </main>
+      <Main />
     </UIProvider>
   );
 }

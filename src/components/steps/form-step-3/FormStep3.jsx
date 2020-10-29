@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 // Components
 import FormGroup from '../../reusable/form-group/FormGroup'
-import Input from '../../reusable/input/Input'
+import Select from '../../reusable/select/Select'
 import FormFooter from '../../reusable/form-footer/FormFooter'
 import FormHeader from '../../reusable/form-header/FormHeader'
 // Context
@@ -35,19 +35,19 @@ const FormStep3 = React.memo(() => {
                 <FormGroup title="Start Date">
                     <div className="grid grid-gap-10">
                         <div className="col-4 col-gap-10">
-                            <Input
+                            <Select
                                 label="Month"
                                 name="month"
                             />
                         </div>
                         <div className="col-4 col-gap-10">
-                            <Input
+                            <Select
                                 label="Day"
                                 name="day"
                             />
                         </div>
                         <div className="col-4 col-gap-10">
-                            <Input
+                            <Select
                                 label="Year"
                                 name="year"
                             />
@@ -57,19 +57,19 @@ const FormStep3 = React.memo(() => {
                 <FormGroup title="End Date">
                     <div className="grid grid-gap-10">
                         <div className="col-4 col-gap-10">
-                            <Input
+                            <Select
                                 label="Month"
                                 name="month"
                             />
                         </div>
                         <div className="col-4 col-gap-10">
-                            <Input
+                            <Select
                                 label="Day"
                                 name="day"
                             />
                         </div>
                         <div className="col-4 col-gap-10">
-                            <Input
+                            <Select
                                 label="Year"
                                 name="year"
                             />
