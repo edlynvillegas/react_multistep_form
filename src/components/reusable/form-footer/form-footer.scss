@@ -17,6 +17,8 @@
         align-items: unset;
 
         div:last-of-type {
+            display: flex;
+            flex-direction: column-reverse;
             button { margin-left: 0; }
         }
     }

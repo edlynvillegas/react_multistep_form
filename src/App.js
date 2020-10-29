@@ -1,6 +1,6 @@
 // Components
 import Form from './components/form/form'
-import FormStepper from './components/form-stepper/form-stepper'
+import FormStepper from './components/form-stepper/FormStepper'
 import './global.scss';
 // Provider
 import UIProvider from './context/UIContext'
