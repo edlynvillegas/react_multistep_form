@@ -78,12 +78,17 @@ button {
       color: $default;
   }
 
-  span {
+  span.sub-label {
     position: absolute;
     top: 25px;
     left: 15px;
     font-size: 18px;
     color: $default;
+  }
+
+  span.input-error {
+    font-size: 12px;
+    color: red;
   }
 
   input, textarea, select {

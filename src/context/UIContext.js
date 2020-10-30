@@ -1,4 +1,4 @@
-import React, { createContext, useState, useReducer } from 'react'
+import React, { createContext, useState, useReducer, useEffect } from 'react'
 // SVGs
 import { ReactComponent as BoxSVG } from '../assets/icons/box.svg'
 import { ReactComponent as TruckSVG } from '../assets/icons/truck.svg'
@@ -7,7 +7,14 @@ import { ReactComponent as ScheduleSVG } from '../assets/icons/schedule.svg'
 export const UIContext = createContext();
 
 const DATE = new Date();
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+const dayOptions = () => {
+    let days = [];
+    for (let index = 1; index <= 30; index++) {
+        days.push(index)
+    }
+    return days;
+}
+const monthOptions = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const initialState = {
     description: '',
     budget: {
@@ -15,23 +22,32 @@ const initialState = {
         max: 0
     },
     equipment: {
-        type: 'None',
+        type: '',
         weight: 0,
         size: 0
     },
-    schedule: {
-        start_date: {
-            month: months[DATE.getMonth()],
-            day: DATE.getDate(),
-            year: DATE.getFullYear()
-        },
-        end_date: {
-            month: months[DATE.getMonth()],
-            day: DATE.getDate(),
-            year: DATE.getFullYear()
-        }
+    pickup: {
+        address: '',
+        city: '',
+        barangay: ''
+    },
+    delivery: {
+        address: '',
+        city: '',
+        barangay: ''
+    },
+    start_date: {
+        month: monthOptions[DATE.getMonth()],
+        day: DATE.getDate(),
+        year: DATE.getFullYear()
+    },
+    end_date: {
+        month: monthOptions[DATE.getMonth()],
+        day: DATE.getDate(),
+        year: DATE.getFullYear()
     }
 }
+
 const initialFormSteps = [
     {
         step: 1,
@@ -86,12 +102,18 @@ const UIProvider = ({ children }) => {
     const [formData, setFormData] = useState(initialState)
     const [submitted, setSubmitted] = useState(false)
 
+    useEffect(() => {
+        if(submitted) console.log('FORM DATA:', formData)
+        // eslint-disable-next-line
+    }, [submitted])
+
     return (
         <UIContext.Provider value={{
             activeStep, setActiveStep,
             formData, setFormData,
             formSteps, setFormSteps,
             submitted, setSubmitted,
+            monthOptions, dayOptions,
             ACTIVE_ACTIONS}}>
             {children}
         </UIContext.Provider>

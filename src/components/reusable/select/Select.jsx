@@ -1,14 +1,14 @@
 import React from 'react';
 // import './input.scss'
 
-const Select = React.memo(({ name, label, options }) => {
+const Select = React.memo(({ name, label, options, register }) => {
     return (
         <>
             <div className="input-group">
                 <label htmlFor={name}>{ label }</label>
-                <select name={name} id={name}>
+                <select name={name} id={name} ref={register}>
                     {
-                        options.map(opt => <option value={opt.value}>{opt.name}</option>)
+                        options.map((opt, index) => <option key={index} value={opt}>{opt}</option>)
                     }
                 </select>
             </div>
@@ -20,9 +20,9 @@ Select.defaultProps = {
     name: "select",
     label: "Select label",
     options: [
-        { value: 'value1', name: 'Option 1' },
-        { value: 'value2', name: 'Option 2' },
-        { value: 'value3', name: 'Option 3' }
+        'Option 1',
+        'Option 2',
+        'Option 3'
     ]
 }
 

@@ -14,13 +14,14 @@ const FormStepper = React.memo(({ handleSaveDraft, handleCancel, handleNext, han
         </div>
         <div>
             <Button handleClick={handleCancel} color="accent" text="Cancel" />
-            {
+            {/* {
                 handleNext ?
                 <Button handleClick={handleNext} color="primary" text="Next" /> :
                 handleSubmit ?
-                <Button handleClick={handleSubmit} color="primary" text="Create Load" /> :
+                <Button type="submit" color="primary" text="Create Load" /> :
                 null
-            }
+            } */}
+            <Button type="submit" color="primary" text="Next" />
         </div>
     </div>
 ))

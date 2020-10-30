@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import './form.scss';
+
 // Context
 import { UIContext } from '../../context/UIContext'
 // Components
@@ -10,7 +11,7 @@ import FormStep3 from '../steps/form-step-3/FormStep3'
 import { ReactComponent as BoxSVG } from '../../assets/icons/box.svg'
 
 const Form = React.memo(() => {
-    const { activeStep,submitted } = useContext(UIContext)
+    const { activeStep, submitted } = useContext(UIContext)
 
     const activeComponent = activeStep === 1 ? <FormStep1 /> :
     activeStep === 2 ? <FormStep2 /> :

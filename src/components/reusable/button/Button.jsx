@@ -5,8 +5,7 @@ const Button = React.memo(({ type, text, color, handleClick }) => {
     return (
         <>
             <button type={type}
-                className={`btn btn-${color}`}
-                onClick={() => handleClick()}>
+                className={`btn btn-${color}`}>
                 {text}
             </button>
         </>
