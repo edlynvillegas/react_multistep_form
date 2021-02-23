@@ -5,7 +5,7 @@ import './global.scss';
 import UIProvider from './context/UIContext'
 
 function App() {
-  console.log(process.env.API_BASE_URL)
+  console.log('->', process.env.API_BASE_URL)
   return (
     <UIProvider>
       <Main />
